@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="YellowMode" sid="625366005757243" static="0" type="number">0</variable>
+        <variable constant="0" name="RedMode" sid="301935501240027" static="0" type="number">0</variable>
+        <event-block sid="875042094529880">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="191730786570787" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="972083919710442">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="746184130691281" type="System">
+                            <param id="0" name="Variable">RedMode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Car" id="4" name="Set max speed" sid="952671912357833" type="Araba1">
+                            <param id="0" name="Max Speed">250</param>
+                        </action>
+                        <action behavior="Car" id="7" name="Simulate control" sid="351412907943046" type="Araba1">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="614309321146754">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="991035059603173" type="System">
+                            <param id="0" name="Variable">RedMode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Car" id="7" name="Simulate control" sid="546822702624501" type="Araba1">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                        <action behavior="Car" id="4" name="Set max speed" sid="793118599855495" type="Araba1">
+                            <param id="0" name="Max Speed">350</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="903951368494464">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="139474391838850" type="System">
+                            <param id="0" name="Variable">RedMode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Car" id="7" name="Simulate control" sid="412231622703453" type="Araba1">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="976541582858305">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="228195715004798" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="788626174347304">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="757153356871674" type="System">
+                            <param id="0" name="Variable">YellowMode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Car" id="4" name="Set max speed" sid="347190027835078" type="Araba2">
+                            <param id="0" name="Max Speed">250</param>
+                        </action>
+                        <action behavior="Car" id="7" name="Simulate control" sid="975114262780169" type="Araba2">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="587143400345980">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="513604648374136" type="System">
+                            <param id="0" name="Variable">YellowMode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Car" id="4" name="Set max speed" sid="674983584029292" type="Araba2">
+                            <param id="0" name="Max Speed">350</param>
+                        </action>
+                        <action behavior="Car" id="7" name="Simulate control" sid="595914832935506" type="Araba2">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="242072386167175">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="888249221020437" type="System">
+                            <param id="0" name="Variable">YellowMode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Car" id="3" name="Set speed" sid="290713879051289" type="Araba2">
+                            <param id="0" name="Speed">150</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="789363995173676">
+            <conditions>
+                <condition id="-3" inverted="1" name="Is on-screen" sid="568338265075051" type="Cizgi" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="885270541697413" type="Cizgi">
+                    <param id="0" name="X">448</param>
+                    <param id="1" name="Y">Araba1.Y-256</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="393486311232005">
+            <conditions>
+                <condition id="2" name="Key is down" sid="902395779614080" type="Keyboard">
+                    <param id="0" name="Key">65 (A)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Car" id="7" name="Simulate control" sid="868134424009707" type="Araba2">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="239138335255143">
+            <conditions>
+                <condition id="2" name="Key is down" sid="550420603146560" type="Keyboard">
+                    <param id="0" name="Key">68 (D)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Car" id="7" name="Simulate control" sid="847583765025313" type="Araba2">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="470671335638510">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="520052861476746" type="Araba2">
+                    <param id="0" name="Object">SarıOk</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="519488423276139" type="SarıOk" />
+                <action id="-9" name="Set value" sid="999750813149699" type="System">
+                    <param id="0" name="Variable">YellowMode</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="138031578558747">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="647386537129158" type="Araba1">
+                    <param id="0" name="Object">KırmızıOk</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="241295628914545" type="KırmızıOk" />
+                <action id="-9" name="Set value" sid="578620259960968" type="System">
+                    <param id="0" name="Variable">RedMode</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="822364534590413">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="560327669913447" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="632396893607990" type="OrtaNokta">
+                    <param id="0" name="X">(Araba1.X + Araba2.X)/2</param>
+                    <param id="1" name="Y">(Araba1.Y + Araba2.Y)/2</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
