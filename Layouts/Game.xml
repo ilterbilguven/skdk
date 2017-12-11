@@ -352,8 +352,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <speed>0</speed>
+                        <speedMultiplier>1</speedMultiplier>
                         <boost>false</boost>
+                        <boostTime>0</boostTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Car">
@@ -403,8 +404,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <speed>0</speed>
-                        <boost>0</boost>
+                        <speedMultiplier>1</speedMultiplier>
+                        <boost>false</boost>
+                        <boostTime>0</boostTime>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Car">
