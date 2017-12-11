@@ -47,7 +47,7 @@
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
     <object-folder>
-        <object-type name="Araba1" sid="708812907433846">
+        <object-type name="redCar" sid="708812907433846">
             <plugin id="Sprite" />
             <behaviors>
                 <behavior-type name="Car" sid="366699231388454">
@@ -94,7 +94,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Araba2" sid="869984695420071">
+        <object-type name="yellowCar" sid="869984695420071">
             <plugin id="Sprite" />
             <behaviors>
                 <behavior-type name="Car" sid="788255354698098">
@@ -127,7 +127,7 @@
         <object-type name="Keyboard" sid="992650097558703">
             <plugin id="Keyboard" />
         </object-type>
-        <object-type name="SarıOk" sid="812719761362477">
+        <object-type name="yellowBoost" sid="812719761362477">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="121265916358617" speed="5">
@@ -141,7 +141,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="KırmızıOk" sid="384379540647887">
+        <object-type name="redBoost" sid="384379540647887">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="440714206288275" speed="5">
@@ -155,7 +155,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="OrtaNokta" sid="671779035370607">
+        <object-type name="middlePoint" sid="671779035370607">
             <plugin id="Sprite" />
             <behaviors>
                 <behavior-type name="ScrollTo" sid="594645927445105">

@@ -29,7 +29,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="OrtaNokta" uid="14">
+                <instance type="middlePoint" uid="14">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -303,7 +303,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="SarıOk" uid="12">
+                <instance type="yellowBoost" uid="12">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -344,7 +344,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="Araba1" uid="0">
+                <instance type="redCar" uid="0">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -391,7 +391,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Araba2" uid="10">
+                <instance type="yellowCar" uid="10">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -438,7 +438,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="KırmızıOk" uid="13">
+                <instance type="redBoost" uid="13">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
