@@ -7,6 +7,80 @@
         <variable constant="0" name="YellowTick" sid="643230286193790" static="0" type="number">0</variable>
         <variable constant="0" name="YellowMode" sid="625366005757243" static="0" type="number">0</variable>
         <variable constant="0" name="RedMode" sid="301935501240027" static="0" type="number">0</variable>
+        <event-group description="" sid="597718186976706" title="CarDefaultSettings">
+            <sub-events>
+                <event-group description="" sid="458983372464873" title="Acceleration">
+                    <sub-events>
+                        <event-block sid="791231815502856">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="664400958932668" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Car" id="7" name="Simulate control" sid="351412907943046" type="redCar">
+                                    <param id="0" name="Control">2</param>
+                                </action>
+                                <action behavior="Car" id="7" name="Simulate control" sid="863745292914834" type="yellowCar">
+                                    <param id="0" name="Control">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="790026898885786" title="Controls">
+                    <sub-events>
+                        <event-block sid="978611712321382">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="559101480041847" type="Keyboard">
+                                    <param id="0" name="Key">65</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Car" id="7" name="Simulate control" sid="868134424009707" type="yellowCar">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="763115944377836">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="614840482399133" type="Keyboard">
+                                    <param id="0" name="Key">68</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Car" id="7" name="Simulate control" sid="581811505764757" type="yellowCar">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="833536016008855">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="806483684877821" type="Keyboard">
+                                    <param id="0" name="Key">37</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Car" id="7" name="Simulate control" sid="338667472860436" type="redCar">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="562432874776400">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="350754410393670" type="Keyboard">
+                                    <param id="0" name="Key">39</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Car" id="7" name="Simulate control" sid="591422602065165" type="redCar">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="673070311617503" title="CarBoostSettings" />
         <event-block sid="875042094529880">
             <conditions>
                 <condition id="-1" name="Every tick" sid="191730786570787" type="System" />
@@ -25,9 +99,6 @@
                         <action behavior="Car" id="4" name="Set max speed" sid="952671912357833" type="redCar">
                             <param id="0" name="Max Speed">250</param>
                         </action>
-                        <action behavior="Car" id="7" name="Simulate control" sid="351412907943046" type="redCar">
-                            <param id="0" name="Control">2</param>
-                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="614309321146754">
@@ -39,9 +110,6 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="Car" id="7" name="Simulate control" sid="546822702624501" type="redCar">
-                            <param id="0" name="Control">2</param>
-                        </action>
                         <action behavior="Car" id="4" name="Set max speed" sid="793118599855495" type="redCar">
                             <param id="0" name="Max Speed">350</param>
                         </action>
@@ -195,30 +263,6 @@
                 <action id="-3" name="Set position" sid="885270541697413" type="Line">
                     <param id="0" name="X">448</param>
                     <param id="1" name="Y">middlePoint.Y-256</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="393486311232005">
-            <conditions>
-                <condition id="2" name="Key is down" sid="902395779614080" type="Keyboard">
-                    <param id="0" name="Key">65</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="Car" id="7" name="Simulate control" sid="868134424009707" type="yellowCar">
-                    <param id="0" name="Control">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="239138335255143">
-            <conditions>
-                <condition id="2" name="Key is down" sid="550420603146560" type="Keyboard">
-                    <param id="0" name="Key">68</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="Car" id="7" name="Simulate control" sid="847583765025313" type="yellowCar">
-                    <param id="0" name="Control">1</param>
                 </action>
             </actions>
         </event-block>

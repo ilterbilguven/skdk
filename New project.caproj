@@ -50,6 +50,10 @@
     <object-folder>
         <object-type name="redCar" sid="708812907433846">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="speed" sid="483405549197854" type="number" />
+                <instance-variable name="boost" sid="746573276617627" type="boolean" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Car" sid="366699231388454">
                     <behavior id="Car" />
@@ -97,6 +101,10 @@
         </object-type>
         <object-type name="yellowCar" sid="869984695420071">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="speed" sid="807269568032949" type="number" />
+                <instance-variable name="boost" sid="553981797365990" type="number" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Car" sid="788255354698098">
                     <behavior id="Car" />

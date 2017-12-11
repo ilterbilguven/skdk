@@ -351,6 +351,10 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <speed>0</speed>
+                        <boost>false</boost>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Car">
                             <properties>
@@ -361,7 +365,7 @@
                                 <drift-recover>185</drift-recover>
                                 <friction>0</friction>
                                 <set-angle>Yes</set-angle>
-                                <default-controls>Yes</default-controls>
+                                <default-controls>No</default-controls>
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
@@ -398,6 +402,10 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <speed>0</speed>
+                        <boost>0</boost>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Car">
                             <properties>
@@ -406,7 +414,7 @@
                                 <deceleration>300</deceleration>
                                 <steer-speed>225</steer-speed>
                                 <drift-recover>185</drift-recover>
-                                <friction>0.4</friction>
+                                <friction>0</friction>
                                 <set-angle>Yes</set-angle>
                                 <default-controls>No</default-controls>
                                 <initial-state>Enabled</initial-state>
