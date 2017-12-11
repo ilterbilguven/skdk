@@ -189,12 +189,12 @@
         </event-block>
         <event-block sid="789363995173676">
             <conditions>
-                <condition id="-3" inverted="1" name="Is on-screen" sid="568338265075051" type="Cizgi" />
+                <condition id="-3" inverted="1" name="Is on-screen" sid="568338265075051" type="Line" />
             </conditions>
             <actions>
-                <action id="-3" name="Set position" sid="885270541697413" type="Cizgi">
+                <action id="-3" name="Set position" sid="885270541697413" type="Line">
                     <param id="0" name="X">448</param>
-                    <param id="1" name="Y">Araba1.Y-256</param>
+                    <param id="1" name="Y">OrtaNokta.Y-256</param>
                 </action>
             </actions>
         </event-block>

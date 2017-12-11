@@ -86,7 +86,7 @@
             </behaviors>
             <texture />
         </object-type>
-        <object-type name="Cizgi" sid="728175124720110">
+        <object-type name="Line" sid="728175124720110">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="900509784996123" speed="5">
