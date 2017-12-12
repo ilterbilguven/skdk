@@ -352,7 +352,6 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <speedMultiplier>1</speedMultiplier>
                         <boost>false</boost>
                         <boostTime>0</boostTime>
                     </instance-variables>
@@ -404,7 +403,6 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <speedMultiplier>1</speedMultiplier>
                         <boost>false</boost>
                         <boostTime>0</boostTime>
                     </instance-variables>

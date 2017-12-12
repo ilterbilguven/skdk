@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2project>
-    <name>New project</name>
+    <name>SKDK</name>
     <description></description>
     <version>1.0.0.0</version>
-    <author></author>
-    <author-email></author-email>
+    <author>İlter Bilgüven, Mutlu Kendir, Buket Albayrak</author>
+    <author-email>ilter@live.com</author-email>
     <author-website>http://</author-website>
     <app-id>com.mycompany.myapp</app-id>
     <unique-id>2kj644mr10st4</unique-id>
@@ -51,7 +51,6 @@
         <object-type name="redCar" sid="708812907433846">
             <plugin id="Sprite" />
             <instance-variables>
-                <instance-variable name="speedMultiplier" sid="483405549197854" type="number" />
                 <instance-variable name="boost" sid="746573276617627" type="boolean" />
                 <instance-variable name="boostTime" sid="809031816465419" type="number" />
             </instance-variables>
@@ -103,7 +102,6 @@
         <object-type name="yellowCar" sid="869984695420071">
             <plugin id="Sprite" />
             <instance-variables>
-                <instance-variable name="speedMultiplier" sid="807269568032949" type="number" />
                 <instance-variable name="boost" sid="553981797365990" type="boolean" />
                 <instance-variable name="boostTime" sid="467196264311840" type="number" />
             </instance-variables>

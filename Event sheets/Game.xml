@@ -3,10 +3,6 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Game</name>
     <events>
-        <variable constant="0" name="RedTick" sid="854108114473695" static="0" type="number">0</variable>
-        <variable constant="0" name="YellowTick" sid="643230286193790" static="0" type="number">0</variable>
-        <variable constant="0" name="YellowMode" sid="625366005757243" static="0" type="number">0</variable>
-        <variable constant="0" name="RedMode" sid="301935501240027" static="0" type="number">0</variable>
         <event-group description="" sid="597718186976706" title="CarDefaultSettings">
             <sub-events>
                 <event-group description="" sid="458983372464873" title="Acceleration">
@@ -82,23 +78,9 @@
         </event-group>
         <event-group description="" sid="673070311617503" title="CarBoostSettings">
             <sub-events>
+                <variable constant="0" name="speedMultiplier" sid="241807982500237" static="0" type="number">1.001</variable>
                 <event-group description="" sid="742027716950629" title="SpeedMultiplier">
                     <sub-events>
-                        <event-block sid="575887763048227">
-                            <conditions>
-                                <condition id="-2" name="On start of layout" sid="797224398493312" type="System" />
-                            </conditions>
-                            <actions>
-                                <action id="-10" name="Set value" sid="759118874165114" type="redCar">
-                                    <param id="0" name="Instance variable">speedMultiplier</param>
-                                    <param id="1" name="Value">1.1</param>
-                                </action>
-                                <action id="-10" name="Set value" sid="644219725404103" type="yellowCar">
-                                    <param id="0" name="Instance variable">speedMultiplier</param>
-                                    <param id="1" name="Value">1.1</param>
-                                </action>
-                            </actions>
-                        </event-block>
                         <event-block sid="536415646099011">
                             <conditions>
                                 <condition id="-8" name="Is boolean instance variable set" sid="121147449535226" type="redCar">
@@ -106,8 +88,20 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action behavior="Car" id="4" name="Set max speed" sid="392131219122944" type="redCar">
-                                    <param id="0" name="Max Speed">redCar.Car.MaxSpeed * redCar.speedMultiplier</param>
+                                <action behavior="Car" id="4" name="Set max speed" sid="520398086929735" type="redCar">
+                                    <param id="0" name="Max Speed">redCar.Car.MaxSpeed * speedMultiplier</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="544265799673210">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="379183932534537" type="redCar">
+                                    <param id="0" name="Instance variable">boost</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Car" id="4" name="Set max speed" sid="674509744010560" type="redCar">
+                                    <param id="0" name="Max Speed">redCar.Car.MaxSpeed</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -118,8 +112,20 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action behavior="Car" id="4" name="Set max speed" sid="800474128570562" type="yellowCar">
-                                    <param id="0" name="Max Speed">yellowCar.Car.MaxSpeed * yellowCar.speedMultiplier</param>
+                                <action behavior="Car" id="4" name="Set max speed" sid="792312699370841" type="yellowCar">
+                                    <param id="0" name="Max Speed">yellowCar.Car.MaxSpeed * speedMultiplier</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="100332814885736">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="790135982974105" type="yellowCar">
+                                    <param id="0" name="Instance variable">boost</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Car" id="4" name="Set max speed" sid="523437175421717" type="yellowCar">
+                                    <param id="0" name="Max Speed">yellowCar.Car.MaxSpeed</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -144,7 +150,7 @@
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="769708667570376">
+                        <event-block breakpoint="1" sid="769708667570376">
                             <conditions>
                                 <condition id="-6" name="Every X seconds" sid="123785933700902" type="System">
                                     <param id="0" name="Interval (seconds)">1.0</param>
@@ -173,6 +179,10 @@
                                     <param id="0" name="Instance variable">boost</param>
                                     <param id="1" name="Value">0</param>
                                 </action>
+                                <action id="-10" name="Set value" sid="614836916083647" type="redCar">
+                                    <param id="0" name="Instance variable">boostTime</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="632055303828270">
@@ -186,6 +196,10 @@
                             <actions>
                                 <action id="-13" name="Set boolean" sid="269690604381971" type="yellowCar">
                                     <param id="0" name="Instance variable">boost</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="615189146742943" type="yellowCar">
+                                    <param id="0" name="Instance variable">boostTime</param>
                                     <param id="1" name="Value">0</param>
                                 </action>
                             </actions>
