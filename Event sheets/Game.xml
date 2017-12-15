@@ -93,6 +93,56 @@
         </event-group>
         <event-group description="" sid="673070311617503" title="CarBoostSettings">
             <sub-events>
+                <variable constant="0" name="spawnBoost" sid="530063433344543" static="0" type="number">0</variable>
+                <event-group description="" sid="926110298431997" title="BoostSpawnProperties">
+                    <sub-events>
+                        <event-block sid="616301490379335">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="266855719364241" type="System">
+                                    <param id="0" name="Interval (seconds)">random(3,10)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="680501426693374" type="System">
+                                    <param id="0" name="Variable">spawnBoost</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="413184183698688" title="BoostCondition">
+                    <sub-events>
+                        <event-block sid="470671335638510">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="520052861476746" type="yellowCar">
+                                    <param id="0" name="Object">yellowBoost</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="519488423276139" type="yellowBoost" />
+                                <action id="-13" name="Set boolean" sid="432090155247288" type="yellowCar">
+                                    <param id="0" name="Instance variable">boost</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="138031578558747">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="647386537129158" type="redCar">
+                                    <param id="0" name="Object">redBoost</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="241295628914545" type="redBoost" />
+                                <action id="-13" name="Set boolean" sid="823751414082962" type="redCar">
+                                    <param id="0" name="Instance variable">boost</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
                 <event-group description="" sid="742027716950629" title="SpeedMultiplier">
                     <sub-events>
                         <event-block sid="536415646099011">
@@ -104,6 +154,18 @@
                             <actions>
                                 <action behavior="Car" id="4" name="Set max speed" sid="520398086929735" type="redCar">
                                     <param id="0" name="Max Speed">redCar.Car.MaxSpeed + additionalSpeed</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="144662593951881">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="585895953766167" type="yellowCar">
+                                    <param id="0" name="Instance variable">boost</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Car" id="4" name="Set max speed" sid="792312699370841" type="yellowCar">
+                                    <param id="0" name="Max Speed">yellowCar.Car.MaxSpeed + additionalSpeed</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -119,18 +181,6 @@
                                 </action>
                                 <action behavior="Car" id="3" name="Set speed" sid="738691348564409" type="redCar">
                                     <param id="0" name="Speed">maxSpeed</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="144662593951881">
-                            <conditions>
-                                <condition id="-8" name="Is boolean instance variable set" sid="585895953766167" type="yellowCar">
-                                    <param id="0" name="Instance variable">boost</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Car" id="4" name="Set max speed" sid="792312699370841" type="yellowCar">
-                                    <param id="0" name="Max Speed">yellowCar.Car.MaxSpeed + additionalSpeed</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -226,38 +276,6 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-            </sub-events>
-        </event-group>
-        <event-group description="" sid="413184183698688" title="BoostCondition">
-            <sub-events>
-                <event-block sid="470671335638510">
-                    <conditions>
-                        <condition id="0" name="On collision with another object" sid="520052861476746" type="yellowCar">
-                            <param id="0" name="Object">yellowBoost</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Destroy" sid="519488423276139" type="yellowBoost" />
-                        <action id="-13" name="Set boolean" sid="432090155247288" type="yellowCar">
-                            <param id="0" name="Instance variable">boost</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="138031578558747">
-                    <conditions>
-                        <condition id="0" name="On collision with another object" sid="647386537129158" type="redCar">
-                            <param id="0" name="Object">redBoost</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Destroy" sid="241295628914545" type="redBoost" />
-                        <action id="-13" name="Set boolean" sid="823751414082962" type="redCar">
-                            <param id="0" name="Instance variable">boost</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                    </actions>
-                </event-block>
             </sub-events>
         </event-group>
         <event-block sid="789363995173676">
