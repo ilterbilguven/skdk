@@ -177,14 +177,8 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="GameStartText" sid="359362198924501">
+        <object-type name="Text" sid="359362198924501">
             <plugin id="Text" />
-        </object-type>
-        <object-type name="CountdownText" sid="519667648967327">
-            <plugin id="Text" />
-            <instance-variables>
-                <instance-variable name="Time" sid="108825200670203" type="number" />
-            </instance-variables>
         </object-type>
     </object-folder>
     <families />
