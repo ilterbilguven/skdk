@@ -5,48 +5,62 @@
     <events>
         <event-group description="" sid="850948849600103" title="GameStartSettings">
             <sub-events>
-                <event-block sid="110750019632392">
-                    <conditions>
-                        <condition id="-7" name="Compare time" sid="257811868856788" type="System">
-                            <param id="0" name="Comparison">5</param>
-                            <param id="1" name="Time (seconds)">3.0</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Set text" sid="246100267262989" type="CountdownText">
-                            <param id="0" name="Text">&quot;GO!&quot;</param>
-                        </action>
-                        <action id="-16" name="Wait" sid="819654222446434" type="System">
-                            <param id="0" name="Seconds">1</param>
-                        </action>
-                        <action id="-42" name="Signal" sid="761832491190841" type="System">
-                            <param id="0" name="Tag">&quot;Start&quot;</param>
-                        </action>
-                        <action id="-15" name="Set visible" sid="606898293450848" type="CountdownText">
-                            <param id="0" name="Visibility">0</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="297495679844617">
-                    <conditions>
-                        <condition id="-6" name="Every X seconds" sid="383720185797818" type="System">
-                            <param id="0" name="Interval (seconds)">1</param>
-                        </condition>
-                        <condition id="-7" name="Compare time" sid="145302091336646" type="System">
-                            <param id="0" name="Comparison">3</param>
-                            <param id="1" name="Time (seconds)">3</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Set text" sid="333057565984652" type="CountdownText">
-                            <param id="0" name="Text">CountdownText.value</param>
-                        </action>
-                        <action id="-10" name="Set value" sid="696468497554871" type="CountdownText">
-                            <param id="0" name="Instance variable">value</param>
-                            <param id="1" name="Value">CountdownText.value - 1</param>
-                        </action>
-                    </actions>
-                </event-block>
+                <event-group description="" sid="836412122116935" title="CountdownTextSettings">
+                    <sub-events>
+                        <event-block sid="995438214589697">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="681369288625208" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="375393548545063" type="CountdownText">
+                                    <param id="0" name="Text">CountdownText.value</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="297495679844617">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="383720185797818" type="System">
+                                    <param id="0" name="Interval (seconds)">1</param>
+                                </condition>
+                                <condition id="-7" name="Compare time" sid="145302091336646" type="System">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Time (seconds)">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="696468497554871" type="CountdownText">
+                                    <param id="0" name="Instance variable">value</param>
+                                    <param id="1" name="Value">CountdownText.value - 1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="333057565984652" type="CountdownText">
+                                    <param id="0" name="Text">CountdownText.value</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="110750019632392">
+                            <conditions>
+                                <condition id="-7" name="Compare time" sid="257811868856788" type="System">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Time (seconds)">3.0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="246100267262989" type="CountdownText">
+                                    <param id="0" name="Text">&quot;GO!&quot;</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="819654222446434" type="System">
+                                    <param id="0" name="Seconds">1</param>
+                                </action>
+                                <action id="-42" name="Signal" sid="761832491190841" type="System">
+                                    <param id="0" name="Tag">&quot;Start&quot;</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="606898293450848" type="CountdownText">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
             </sub-events>
         </event-group>
         <variable constant="0" name="maxSpeed" sid="929133771792324" static="0" type="number">300</variable>
