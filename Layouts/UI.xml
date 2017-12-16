@@ -60,7 +60,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Text" uid="16">
+                <instance type="startText" uid="16">
                     <properties>
                         <text>Press a key to continue</text>
                         <initial-visibility>Visible</initial-visibility>
