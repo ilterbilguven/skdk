@@ -3,6 +3,23 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Game</name>
     <events>
+        <event-group description="" sid="850948849600103" title="GameStartSettings">
+            <sub-events>
+                <event-block sid="110750019632392">
+                    <conditions>
+                        <condition id="-7" name="Compare time" sid="257811868856788" type="System">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Time (seconds)">3.0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-42" name="Signal" sid="761832491190841" type="System">
+                            <param id="0" name="Tag">&quot;Start&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <variable constant="0" name="maxSpeed" sid="929133771792324" static="0" type="number">300</variable>
         <variable constant="0" name="additionalSpeed" sid="241807982500237" static="0" type="number">1</variable>
         <event-group description="" sid="597718186976706" title="CarDefaultSettings">
@@ -24,9 +41,12 @@
                         </event-block>
                         <event-block sid="791231815502856">
                             <conditions>
-                                <condition id="-1" name="Every tick" sid="664400958932668" type="System" />
+                                <condition id="-1" name="Every tick" sid="226325464095165" type="System" />
                             </conditions>
                             <actions>
+                                <action id="-41" name="Wait for signal" sid="330948573545307" type="System">
+                                    <param id="0" name="Tag">&quot;Start&quot;</param>
+                                </action>
                                 <action behavior="Car" id="7" name="Simulate control" sid="351412907943046" type="redCar">
                                     <param id="0" name="Control">2</param>
                                 </action>
@@ -176,6 +196,9 @@
                                 </condition>
                             </conditions>
                             <actions>
+                                <action id="-41" name="Wait for signal" sid="259797841877050" type="System">
+                                    <param id="0" name="Tag">&quot;UnBoostRed&quot;</param>
+                                </action>
                                 <action behavior="Car" id="4" name="Set max speed" sid="674509744010560" type="redCar">
                                     <param id="0" name="Max Speed">maxSpeed</param>
                                 </action>
@@ -191,6 +214,9 @@
                                 </condition>
                             </conditions>
                             <actions>
+                                <action id="-41" name="Wait for signal" sid="770254940094858" type="System">
+                                    <param id="0" name="Tag">&quot;UnBoostYellow&quot;</param>
+                                </action>
                                 <action behavior="Car" id="4" name="Set max speed" sid="523437175421717" type="yellowCar">
                                     <param id="0" name="Max Speed">maxSpeed</param>
                                 </action>
@@ -253,6 +279,9 @@
                                     <param id="0" name="Instance variable">boostTime</param>
                                     <param id="1" name="Value">0</param>
                                 </action>
+                                <action id="-42" name="Signal" sid="723657200936327" type="System">
+                                    <param id="0" name="Tag">&quot;UnBoostRed&quot;</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="632055303828270">
@@ -272,6 +301,9 @@
                                     <param id="0" name="Instance variable">boostTime</param>
                                     <param id="1" name="Value">0</param>
                                 </action>
+                                <action id="-42" name="Signal" sid="816969926418369" type="System">
+                                    <param id="0" name="Tag">&quot;UnBoostYellow&quot;</param>
+                                </action>
                             </actions>
                         </event-block>
                     </sub-events>
@@ -283,9 +315,8 @@
                 <condition id="-3" inverted="1" name="Is on-screen" sid="568338265075051" type="Line" />
             </conditions>
             <actions>
-                <action id="-3" name="Set position" sid="885270541697413" type="Line">
-                    <param id="0" name="X">448</param>
-                    <param id="1" name="Y">middlePoint.Y-256</param>
+                <action id="-2" name="Set Y" sid="116988257572111" type="Line">
+                    <param id="0" name="Y">middlePoint.Y - 236</param>
                 </action>
             </actions>
         </event-block>
