@@ -5,6 +5,40 @@
     <events>
         <event-group description="" sid="850948849600103" title="GameStartSettings">
             <sub-events>
+                <event-group description="" sid="219015250227766" title="TextSettings">
+                    <sub-events>
+                        <event-block sid="996016315300335">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="511897904294559" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="101843995049383" type="CountdownText">
+                                    <param id="0" name="Text">CountdownText.Time</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="601964320350338">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="874304970625916" type="System">
+                                    <param id="0" name="Interval (seconds)">1.0</param>
+                                </condition>
+                                <condition id="-7" name="Compare time" sid="402807588251191" type="System">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Time (seconds)">3.0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="302707659924384" type="CountdownText">
+                                    <param id="0" name="Instance variable">Time</param>
+                                    <param id="1" name="Value">CountdownText.Time - 1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="267290269482635" type="CountdownText">
+                                    <param id="0" name="Text">CountdownText.Time</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
                 <event-block sid="110750019632392">
                     <conditions>
                         <condition id="-7" name="Compare time" sid="257811868856788" type="System">
@@ -13,6 +47,15 @@
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="0" name="Set text" sid="509044170331484" type="CountdownText">
+                            <param id="0" name="Text">&quot;GO!&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="490205532882895" type="System">
+                            <param id="0" name="Seconds">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="683561515840689" type="CountdownText">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
                         <action id="-42" name="Signal" sid="761832491190841" type="System">
                             <param id="0" name="Tag">&quot;Start&quot;</param>
                         </action>
