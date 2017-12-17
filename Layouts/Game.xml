@@ -15,7 +15,7 @@
     <layers>
         <layer name="Background" sid="231237552944308">
             <initially-visible>1</initially-visible>
-            <background-color>0,0,0</background-color>
+            <background-color>101,136,44</background-color>
             <transparent>0</transparent>
             <parallax>
                 <x>1</x>
@@ -46,8 +46,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>393.359069824</x>
-                        <y>212.490356445</y>
+                        <x>400</x>
+                        <y>200</y>
                         <z>0</z>
                         <width>0</width>
                         <height>0</height>
@@ -61,7 +61,55 @@
             </instances>
             <effects />
         </layer>
-        <layer name="Road" sid="627458353921306">
+        <layer name="RoadBackgorund" sid="796792894003109">
+            <initially-visible>1</initially-visible>
+            <background-color>255,255,255</background-color>
+            <transparent>1</transparent>
+            <parallax>
+                <x>1</x>
+                <y>1</y>
+            </parallax>
+            <zoom-rate>1</zoom-rate>
+            <opacity>1</opacity>
+            <force-own-texture>0</force-own-texture>
+            <global>0</global>
+            <use-render-cells>0</use-render-cells>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
+            <instances>
+                <instance type="RoadBG" uid="69">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="ScrollTo">
+                            <properties>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>395</x>
+                        <y>400</y>
+                        <z>0</z>
+                        <width>500</width>
+                        <height>2160</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+            </instances>
+            <effects />
+        </layer>
+        <layer name="RoadForeground" sid="627458353921306">
             <initially-visible>1</initially-visible>
             <background-color>255,255,255</background-color>
             <transparent>1</transparent>
@@ -1500,7 +1548,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>390</x>
-                        <y>256</y>
+                        <y>384</y>
                         <z>0</z>
                         <width>60</width>
                         <height>30</height>
@@ -1551,7 +1599,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>495</x>
-                        <y>256</y>
+                        <y>384</y>
                         <z>0</z>
                         <width>60</width>
                         <height>30</height>

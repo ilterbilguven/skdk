@@ -403,6 +403,7 @@
                             <param id="0" name="Variable">WhoIsWinning</param>
                             <param id="1" name="Value">&quot;Over&quot;</param>
                         </action>
+                        <action id="-9" name="Destroy" sid="313270872341053" type="redCar" />
                     </actions>
                 </event-block>
                 <event-block sid="913982816153152">
@@ -425,6 +426,7 @@
                             <param id="0" name="Variable">WhoIsWinning</param>
                             <param id="1" name="Value">&quot;Over&quot;</param>
                         </action>
+                        <action id="-9" name="Destroy" sid="638113081164624" type="yellowCar" />
                     </actions>
                 </event-block>
                 <event-block sid="761637309002059">
@@ -454,6 +456,10 @@
                 <event-block sid="644105410762952">
                     <conditions>
                         <condition id="-22" name="Else" sid="752690109384860" type="System" />
+                        <condition id="-2" name="Compare Y" sid="411883397803978" type="yellowCar">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="Y co-ordinate">redCar.Y</param>
+                        </condition>
                         <condition id="-14" name="Compare variable" sid="139960962545548" type="System">
                             <param id="0" name="Variable">DifferenceY</param>
                             <param id="1" name="Comparison">5</param>
@@ -479,6 +485,11 @@
                             <param id="0" name="Variable">WhoIsWinning</param>
                             <param id="1" name="Comparison">1</param>
                             <param id="2" name="Value">&quot;Over&quot;</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="173947673520764" type="System">
+                            <param id="0" name="Variable">DifferenceY</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">DifferenceThreshold * 3</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -516,7 +527,7 @@
                     <actions>
                         <action id="-9" name="Set value" sid="913499025375522" type="System">
                             <param id="0" name="Variable">DifferenceY</param>
-                            <param id="1" name="Value">abs(abs(redPosY) - abs(yellowPosY))</param>
+                            <param id="1" name="Value">abs(abs(redCar.Y) - abs(yellowCar.Y))</param>
                         </action>
                     </actions>
                 </event-block>
@@ -551,55 +562,119 @@
                 </event-block>
                 <event-group description="" sid="251895951501973" title="middlePointSettings">
                     <sub-events>
-                        <event-block sid="822364534590413">
+                        <event-block sid="996343316958360">
                             <conditions>
-                                <condition id="-1" name="Every tick" sid="560327669913447" type="System" />
+                                <condition id="-14" name="Compare variable" sid="200356479884614" type="System">
+                                    <param id="0" name="Variable">WhoIsWinning</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;None&quot;</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="-2" name="Set Y" sid="632396893607990" type="middlePoint">
-                                    <param id="0" name="Y">(redPosY + yellowPosY)/2</param>
+                                    <param id="0" name="Y">lerp(middlePoint.Y, (redPosY + yellowPosY)/2, 0.2)</param>
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="996343316958360">
+                        <event-block sid="526977261222641">
                             <conditions>
-                                <condition id="-1" name="Every tick" sid="741176547936528" type="System" />
-                                <condition id="-14" name="Compare variable" sid="530527899669539" type="System">
+                                <condition id="-22" name="Else" sid="407505093419313" type="System" />
+                                <condition id="-14" name="Compare variable" sid="417159082806301" type="System">
                                     <param id="0" name="Variable">WhoIsWinning</param>
-                                    <param id="1" name="Comparison">1</param>
-                                    <param id="2" name="Value">&quot;Yellow&quot;</param>
-                                </condition>
-                                <condition id="-14" name="Compare variable" sid="342140024479875" type="System">
-                                    <param id="0" name="Variable">WhoIsWinning</param>
-                                    <param id="1" name="Comparison">1</param>
-                                    <param id="2" name="Value">&quot;Over&quot;</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Red&quot;</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-9" name="Set value" sid="348634532441970" type="System">
+                                <action id="-2" name="Set Y" sid="325000142788502" type="middlePoint">
+                                    <param id="0" name="Y">lerp(middlePoint.Y, redPosY + DifferenceY/4, 0.03)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="175174572204045">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="794558667057641" type="System" />
+                                <condition id="-14" name="Compare variable" sid="118789580517007" type="System">
+                                    <param id="0" name="Variable">WhoIsWinning</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Yellow&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Set Y" sid="818190998420758" type="middlePoint">
+                                    <param id="0" name="Y">lerp(middlePoint.Y, yellowPosY + DifferenceY/4, 0.03)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="498356491095993">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="526948757797917" type="System">
+                                    <param id="0" name="Variable">WhoIsWinning</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;None&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="615984836908266" type="System">
                                     <param id="0" name="Variable">redPosY</param>
                                     <param id="1" name="Value">redCar.Y</param>
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="745744358401745">
+                        <event-block sid="239837014725329">
                             <conditions>
-                                <condition id="-1" name="Every tick" sid="473582928116949" type="System" />
-                                <condition id="-14" name="Compare variable" sid="604974276930311" type="System">
+                                <condition id="-22" name="Else" sid="478522541129800" type="System" />
+                                <condition id="-14" name="Compare variable" sid="935408197136779" type="System">
                                     <param id="0" name="Variable">WhoIsWinning</param>
-                                    <param id="1" name="Comparison">1</param>
-                                    <param id="2" name="Value">&quot;Over&quot;</param>
-                                </condition>
-                                <condition id="-14" name="Compare variable" sid="170487338394433" type="System">
-                                    <param id="0" name="Variable">WhoIsWinning</param>
-                                    <param id="1" name="Comparison">1</param>
+                                    <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">&quot;Red&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="744141990888265" type="System">
+                                    <param id="0" name="Variable">redPosY</param>
+                                    <param id="1" name="Value">redCar.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="479263196087133">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="648899837603387" type="System">
+                                    <param id="0" name="Variable">WhoIsWinning</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;None&quot;</param>
                                 </condition>
                             </conditions>
                             <actions>
                                 <action id="-9" name="Set value" sid="224682437146796" type="System">
                                     <param id="0" name="Variable">yellowPosY</param>
                                     <param id="1" name="Value">yellowCar.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="336609445234970">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="841352758206690" type="System" />
+                                <condition id="-14" name="Compare variable" sid="748195589862722" type="System">
+                                    <param id="0" name="Variable">WhoIsWinning</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Yellow&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="445357446724224" type="System">
+                                    <param id="0" name="Variable">yellowPosY</param>
+                                    <param id="1" name="Value">yellowCar.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="182592833227380">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="316800305539442" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Set Y" sid="569326255390978" type="RoadBG">
+                                    <param id="0" name="Y">middlePoint.Y</param>
                                 </action>
                             </actions>
                         </event-block>
