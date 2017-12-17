@@ -5,6 +5,7 @@
     <events>
         <variable constant="0" name="redPosY" sid="726502607280789" static="0" type="number">0</variable>
         <variable constant="0" name="yellowPosY" sid="439636230921838" static="0" type="number">0</variable>
+        <variable constant="0" name="WhoIsWinning" sid="576755713766305" static="0" type="text">None</variable>
         <event-group description="" sid="850948849600103" title="GameStartSettings">
             <sub-events>
                 <event-group description="" sid="836412122116935" title="CountdownTextSettings">
@@ -45,6 +46,10 @@
                                     <param id="0" name="Comparison">5</param>
                                     <param id="1" name="Time (seconds)">3.0</param>
                                 </condition>
+                                <condition id="-7" name="Compare time" sid="814347960900550" type="System">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Time (seconds)">5</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="0" name="Set text" sid="246100267262989" type="UIText">
@@ -52,9 +57,6 @@
                                 </action>
                                 <action id="-16" name="Wait" sid="819654222446434" type="System">
                                     <param id="0" name="Seconds">1</param>
-                                </action>
-                                <action id="-42" name="Signal" sid="761832491190841" type="System">
-                                    <param id="0" name="Tag">&quot;Start&quot;</param>
                                 </action>
                                 <action id="-15" name="Set visible" sid="606898293450848" type="UIText">
                                     <param id="0" name="Visibility">0</param>
@@ -86,12 +88,12 @@
                         </event-block>
                         <event-block sid="791231815502856">
                             <conditions>
-                                <condition id="-1" name="Every tick" sid="226325464095165" type="System" />
+                                <condition id="-7" name="Compare time" sid="594010976072903" type="System">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Time (seconds)">4</param>
+                                </condition>
                             </conditions>
                             <actions>
-                                <action id="-41" name="Wait for signal" sid="330948573545307" type="System">
-                                    <param id="0" name="Tag">&quot;Start&quot;</param>
-                                </action>
                                 <action behavior="Car" id="7" name="Simulate control" sid="351412907943046" type="redCar">
                                     <param id="0" name="Control">2</param>
                                 </action>
@@ -384,47 +386,113 @@
                 <event-block sid="769758097270430">
                     <conditions>
                         <condition id="-3" inverted="1" name="Is on-screen" sid="295752691369832" type="redCar" />
-                        <condition id="-2" name="Compare Y" sid="164212473953463" type="redCar">
-                            <param id="0" name="Comparison">2</param>
-                            <param id="1" name="Y co-ordinate">yellowCar.Y</param>
-                        </condition>
+                        <condition id="-9" inverted="1" name="Is visible" sid="850083228589787" type="UIText" />
                     </conditions>
                     <actions>
+                        <action id="0" name="Set text" sid="404237155172414" type="UIText">
+                            <param id="0" name="Text">&quot;YELLOW WINS&quot; </param>
+                        </action>
                         <action id="-15" name="Set visible" sid="511701983733981" type="UIText">
                             <param id="0" name="Visibility">1</param>
-                        </action>
-                        <action id="0" name="Set text" sid="918362374379007" type="UIText">
-                            <param id="0" name="Text">&quot;RED WINS&quot; </param>
                         </action>
                         <action id="-3" name="Set position" sid="928002637309055" type="UIText">
                             <param id="0" name="X">middlePoint.X</param>
                             <param id="1" name="Y">middlePoint.Y</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="165902866996926" type="System">
+                            <param id="0" name="Variable">WhoIsWinning</param>
+                            <param id="1" name="Value">&quot;Over&quot;</param>
                         </action>
                     </actions>
                 </event-block>
                 <event-block sid="913982816153152">
                     <conditions>
                         <condition id="-3" inverted="1" name="Is on-screen" sid="959758513110444" type="yellowCar" />
-                        <condition id="-2" name="Compare Y" sid="688145681139417" type="yellowCar">
-                            <param id="0" name="Comparison">2</param>
-                            <param id="1" name="Y co-ordinate">redCar.Y</param>
-                        </condition>
+                        <condition id="-9" inverted="1" name="Is visible" sid="259682954050842" type="UIText" />
                     </conditions>
                     <actions>
+                        <action id="0" name="Set text" sid="918362374379007" type="UIText">
+                            <param id="0" name="Text">&quot;RED WINS&quot; </param>
+                        </action>
                         <action id="-15" name="Set visible" sid="152678027454788" type="UIText">
                             <param id="0" name="Visibility">1</param>
-                        </action>
-                        <action id="0" name="Set text" sid="404237155172414" type="UIText">
-                            <param id="0" name="Text">&quot;YELLOW WINS&quot; </param>
                         </action>
                         <action id="-3" name="Set position" sid="846103397090663" type="UIText">
                             <param id="0" name="X">middlePoint.X</param>
                             <param id="1" name="Y">middlePoint.Y</param>
                         </action>
+                        <action id="-9" name="Set value" sid="862742515192855" type="System">
+                            <param id="0" name="Variable">WhoIsWinning</param>
+                            <param id="1" name="Value">&quot;Over&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="761637309002059">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="626565237002243" type="redCar">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="Y co-ordinate">yellowCar.Y</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="777782276952077" type="System">
+                            <param id="0" name="Variable">DifferenceY</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">DifferenceThreshold * 3</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="941218804648244" type="System">
+                            <param id="0" name="Variable">WhoIsWinning</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;Over&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="440992219962418" type="System">
+                            <param id="0" name="Variable">WhoIsWinning</param>
+                            <param id="1" name="Value">&quot;Red&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="644105410762952">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="752690109384860" type="System" />
+                        <condition id="-14" name="Compare variable" sid="139960962545548" type="System">
+                            <param id="0" name="Variable">DifferenceY</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">DifferenceThreshold * 3</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="481141118107473" type="System">
+                            <param id="0" name="Variable">WhoIsWinning</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;Over&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="838524496408552" type="System">
+                            <param id="0" name="Variable">WhoIsWinning</param>
+                            <param id="1" name="Value">&quot;Yellow&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="208200120638848">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="472790683297947" type="System" />
+                        <condition id="-14" name="Compare variable" sid="385445986579881" type="System">
+                            <param id="0" name="Variable">WhoIsWinning</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;Over&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="687568276718740" type="System">
+                            <param id="0" name="Variable">WhoIsWinning</param>
+                            <param id="1" name="Value">&quot;None&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
         </event-group>
+        <variable constant="0" name="Scale" sid="480689239057262" static="0" type="number">1</variable>
+        <variable constant="0" name="DifferenceThreshold" sid="575945652243100" static="0" type="number">256</variable>
+        <variable constant="0" name="DifferenceY" sid="410209839375416" static="0" type="number">0</variable>
         <event-group description="" sid="914779195844395" title="CameraSettings">
             <sub-events>
                 <event-group description="" sid="743973013062722" title="Debug">
@@ -441,9 +509,6 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <variable constant="0" name="Scale" sid="480689239057262" static="0" type="number">1</variable>
-                <variable constant="0" name="DifferenceThreshold" sid="575945652243100" static="0" type="number">256</variable>
-                <variable constant="0" name="DifferenceY" sid="410209839375416" static="0" type="number">0</variable>
                 <event-block sid="445423971073518">
                     <conditions>
                         <condition id="-1" name="Every tick" sid="387744203359274" type="System" />
@@ -472,6 +537,11 @@
                 <event-block sid="742141725607663">
                     <conditions>
                         <condition id="-22" name="Else" sid="631950591636730" type="System" />
+                        <condition id="-14" name="Compare variable" sid="528640530279841" type="System">
+                            <param id="0" name="Variable">WhoIsWinning</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;None&quot;</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="-20" name="Set layout scale" sid="417960181591718" type="System">
@@ -494,13 +564,40 @@
                         <event-block sid="996343316958360">
                             <conditions>
                                 <condition id="-1" name="Every tick" sid="741176547936528" type="System" />
+                                <condition id="-14" name="Compare variable" sid="530527899669539" type="System">
+                                    <param id="0" name="Variable">WhoIsWinning</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">&quot;Yellow&quot;</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="342140024479875" type="System">
+                                    <param id="0" name="Variable">WhoIsWinning</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">&quot;Over&quot;</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="-9" name="Set value" sid="348634532441970" type="System">
                                     <param id="0" name="Variable">redPosY</param>
                                     <param id="1" name="Value">redCar.Y</param>
                                 </action>
-                                <action id="-9" name="Set value" sid="712230083850159" type="System">
+                            </actions>
+                        </event-block>
+                        <event-block sid="745744358401745">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="473582928116949" type="System" />
+                                <condition id="-14" name="Compare variable" sid="604974276930311" type="System">
+                                    <param id="0" name="Variable">WhoIsWinning</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">&quot;Over&quot;</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="170487338394433" type="System">
+                                    <param id="0" name="Variable">WhoIsWinning</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">&quot;Red&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="224682437146796" type="System">
                                     <param id="0" name="Variable">yellowPosY</param>
                                     <param id="1" name="Value">yellowCar.Y</param>
                                 </action>
