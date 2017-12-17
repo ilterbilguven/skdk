@@ -226,6 +226,33 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="bump" sid="606132953090672">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="781248003112503" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Downloads\cukur.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="dog" sid="234885748569425">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="952879262198275" speed="5">
+                    <frame duration="1" hotspotX="0.555556" hotspotY="0.5" original-source="D:\Downloads\kopek.png">
+                        <collision-poly>
+                            <point x="0.333333" y="0.1" />
+                            <point x="0.444444" y="0" />
+                            <point x="0.666667" y="0.1" />
+                            <point x="0.777778" y="0.5" />
+                            <point x="0.666667" y="0.9" />
+                            <point x="0.444444" y="1" />
+                            <point x="0.444444" y="0.866667" />
+                            <point x="0.222222" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
