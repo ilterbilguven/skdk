@@ -738,10 +738,7 @@
                 </event-group>
                 <event-group description="" sid="851391719571507" title="FrictionSettings">
                     <sub-events>
-                        <variable constant="0" name="outlineFriction" sid="449433603102457" static="0" type="number">25</variable>
                         <variable constant="0" name="offroadFriction" sid="832479308459517" static="0" type="number">75</variable>
-                        <variable constant="0" name="treeFriction" sid="773149263654902" static="0" type="number">150</variable>
-                        <variable constant="0" name="bumpFriction" sid="436186747166103" static="0" type="number">45</variable>
                         <event-block sid="439210300704216">
                             <conditions>
                                 <condition id="1" name="Is overlapping another object" sid="514596174680715" type="redCar">
@@ -750,7 +747,7 @@
                             </conditions>
                             <actions>
                                 <action behavior="Car" id="4" name="Set max speed" sid="980535951922794" type="redCar">
-                                    <param id="0" name="Max Speed">maxSpeed - outlineFriction</param>
+                                    <param id="0" name="Max Speed">maxSpeed - RoadOutline.friction</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -763,7 +760,7 @@
                             </conditions>
                             <actions>
                                 <action behavior="Car" id="4" name="Set max speed" sid="446430179593223" type="redCar">
-                                    <param id="0" name="Max Speed">maxSpeed - treeFriction</param>
+                                    <param id="0" name="Max Speed">maxSpeed - Tree.friction</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -776,7 +773,20 @@
                             </conditions>
                             <actions>
                                 <action behavior="Car" id="4" name="Set max speed" sid="520766560385007" type="redCar">
-                                    <param id="0" name="Max Speed">maxSpeed - bumpFriction</param>
+                                    <param id="0" name="Max Speed">maxSpeed - bump.friction</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="829240523367899">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="955062258563459" type="System" />
+                                <condition id="1" name="Is overlapping another object" sid="858117552209407" type="redCar">
+                                    <param id="0" name="Object">dog</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Car" id="4" name="Set max speed" sid="631873858607008" type="redCar">
+                                    <param id="0" name="Max Speed">maxSpeed - dog.friction</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -810,7 +820,7 @@
                             </conditions>
                             <actions>
                                 <action behavior="Car" id="4" name="Set max speed" sid="621093579063688" type="yellowCar">
-                                    <param id="0" name="Max Speed">maxSpeed - outlineFriction</param>
+                                    <param id="0" name="Max Speed">maxSpeed - RoadOutline.friction</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -823,7 +833,7 @@
                             </conditions>
                             <actions>
                                 <action behavior="Car" id="4" name="Set max speed" sid="412704076295014" type="yellowCar">
-                                    <param id="0" name="Max Speed">maxSpeed - treeFriction</param>
+                                    <param id="0" name="Max Speed">maxSpeed - Tree.friction</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -836,7 +846,20 @@
                             </conditions>
                             <actions>
                                 <action behavior="Car" id="4" name="Set max speed" sid="492717960371392" type="yellowCar">
-                                    <param id="0" name="Max Speed">maxSpeed - bumpFriction</param>
+                                    <param id="0" name="Max Speed">maxSpeed - bump.friction</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="367689205582547">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="214692779108572" type="System" />
+                                <condition id="1" name="Is overlapping another object" sid="808400206365310" type="yellowCar">
+                                    <param id="0" name="Object">dog</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Car" id="4" name="Set max speed" sid="142857835662804" type="yellowCar">
+                                    <param id="0" name="Max Speed">maxSpeed - dog.friction</param>
                                 </action>
                             </actions>
                         </event-block>

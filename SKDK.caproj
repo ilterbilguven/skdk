@@ -201,6 +201,9 @@
         </object-type>
         <object-type name="RoadOutline" sid="136825450353570">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="friction" sid="886222297093534" type="number" />
+            </instance-variables>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="535460831160069" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
@@ -209,6 +212,9 @@
         </object-type>
         <object-type name="Tree" sid="910129552103274">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="friction" sid="929682965068605" type="number" />
+            </instance-variables>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="567076251228975" speed="5">
                     <frame duration="1" hotspotX="0.501193" hotspotY="0.501193" original-source="D:\Desktop\1x\Asset 1.png">
@@ -228,6 +234,9 @@
         </object-type>
         <object-type name="bump" sid="606132953090672">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="friction" sid="600962100129333" type="number" />
+            </instance-variables>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="781248003112503" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Downloads\cukur.png" />
@@ -236,6 +245,9 @@
         </object-type>
         <object-type name="dog" sid="234885748569425">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="friction" sid="483340966254703" type="number" />
+            </instance-variables>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="952879262198275" speed="5">
                     <frame duration="1" hotspotX="0.555556" hotspotY="0.5" original-source="D:\Downloads\kopek.png">
