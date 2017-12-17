@@ -3,6 +3,8 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Game</name>
     <events>
+        <variable constant="0" name="redPosY" sid="726502607280789" static="0" type="number">0</variable>
+        <variable constant="0" name="yellowPosY" sid="439636230921838" static="0" type="number">0</variable>
         <event-group description="" sid="850948849600103" title="GameStartSettings">
             <sub-events>
                 <event-group description="" sid="836412122116935" title="CountdownTextSettings">
@@ -360,39 +362,18 @@
                 </event-group>
             </sub-events>
         </event-group>
-        <event-block sid="432579058991188">
-            <conditions>
-                <condition id="-2" name="On start of layout" sid="705122031003086" type="System" />
-            </conditions>
-            <actions>
-                <action id="-20" name="Set layout scale" sid="146190331251848" type="System">
-                    <param id="0" name="Scale">0.2</param>
-                </action>
-            </actions>
-        </event-block>
         <event-group description="" sid="349417332891368" title="LineSettings">
             <sub-events>
                 <event-block sid="789363995173676">
                     <conditions>
                         <condition id="-2" name="Compare Y" sid="568338265075051" type="Line">
                             <param id="0" name="Comparison">5</param>
-                            <param id="1" name="Y co-ordinate">middlePoint.Y + 256</param>
+                            <param id="1" name="Y co-ordinate">middlePoint.Y + 1024</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="-2" name="Set Y" sid="116988257572111" type="Line">
-                            <param id="0" name="Y">Line.Y - (128 * 9)</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="822364534590413">
-                    <conditions>
-                        <condition id="-1" name="Every tick" sid="560327669913447" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="-3" name="Set position" sid="632396893607990" type="middlePoint">
-                            <param id="0" name="X">(redCar.X + yellowCar.X)/2</param>
-                            <param id="1" name="Y">(redCar.Y + yellowCar.Y)/2</param>
+                            <param id="0" name="Y">Line.Y - (128 * 15)</param>
                         </action>
                     </actions>
                 </event-block>
@@ -403,6 +384,10 @@
                 <event-block sid="769758097270430">
                     <conditions>
                         <condition id="-3" inverted="1" name="Is on-screen" sid="295752691369832" type="redCar" />
+                        <condition id="-2" name="Compare Y" sid="164212473953463" type="redCar">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="Y co-ordinate">yellowCar.Y</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="-15" name="Set visible" sid="511701983733981" type="UIText">
@@ -411,11 +396,19 @@
                         <action id="0" name="Set text" sid="918362374379007" type="UIText">
                             <param id="0" name="Text">&quot;RED WINS&quot; </param>
                         </action>
+                        <action id="-3" name="Set position" sid="928002637309055" type="UIText">
+                            <param id="0" name="X">middlePoint.X</param>
+                            <param id="1" name="Y">middlePoint.Y</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="913982816153152">
                     <conditions>
                         <condition id="-3" inverted="1" name="Is on-screen" sid="959758513110444" type="yellowCar" />
+                        <condition id="-2" name="Compare Y" sid="688145681139417" type="yellowCar">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="Y co-ordinate">redCar.Y</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="-15" name="Set visible" sid="152678027454788" type="UIText">
@@ -424,8 +417,97 @@
                         <action id="0" name="Set text" sid="404237155172414" type="UIText">
                             <param id="0" name="Text">&quot;YELLOW WINS&quot; </param>
                         </action>
+                        <action id="-3" name="Set position" sid="846103397090663" type="UIText">
+                            <param id="0" name="X">middlePoint.X</param>
+                            <param id="1" name="Y">middlePoint.Y</param>
+                        </action>
                     </actions>
                 </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="914779195844395" title="CameraSettings">
+            <sub-events>
+                <event-group description="" sid="743973013062722" title="Debug">
+                    <sub-events>
+                        <event-block disabled="1" sid="873116933816103">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="183287363886340" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-20" name="Set layout scale" sid="995027297857634" type="System">
+                                    <param id="0" name="Scale">0.2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <variable constant="0" name="Scale" sid="480689239057262" static="0" type="number">1</variable>
+                <variable constant="0" name="DifferenceThreshold" sid="575945652243100" static="0" type="number">256</variable>
+                <variable constant="0" name="DifferenceY" sid="410209839375416" static="0" type="number">0</variable>
+                <event-block sid="445423971073518">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="387744203359274" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="913499025375522" type="System">
+                            <param id="0" name="Variable">DifferenceY</param>
+                            <param id="1" name="Value">abs(abs(redPosY) - abs(yellowPosY))</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="655797680975301">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="156325142750453" type="System">
+                            <param id="0" name="Variable">DifferenceY</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">DifferenceThreshold</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-20" name="Set layout scale" sid="442245465949949" type="System">
+                            <param id="0" name="Scale">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="742141725607663">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="631950591636730" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-20" name="Set layout scale" sid="417960181591718" type="System">
+                            <param id="0" name="Scale">DifferenceThreshold / DifferenceY</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-group description="" sid="251895951501973" title="middlePointSettings">
+                    <sub-events>
+                        <event-block sid="822364534590413">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="560327669913447" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Set Y" sid="632396893607990" type="middlePoint">
+                                    <param id="0" name="Y">(redPosY + yellowPosY)/2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="996343316958360">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="741176547936528" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="348634532441970" type="System">
+                                    <param id="0" name="Variable">redPosY</param>
+                                    <param id="1" name="Value">redCar.Y</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="712230083850159" type="System">
+                                    <param id="0" name="Variable">yellowPosY</param>
+                                    <param id="1" name="Value">yellowCar.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
             </sub-events>
         </event-group>
     </events>
