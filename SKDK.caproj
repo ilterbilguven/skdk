@@ -32,12 +32,13 @@
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
+    <first-layout>UI</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
-        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Downscaling">High quality</prop>
         <prop name="Enable WebGL">On</prop>
-        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen in browser">Scale outer</prop>
         <prop name="Fullscreen scaling">High quality</prop>
         <prop name="Loader style">Construct 2 splash</prop>
         <prop name="Orientations">Any</prop>
@@ -270,6 +271,12 @@
                     </frame>
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type name="Text" sid="950432715647313">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Text2" sid="518632217250077">
+            <plugin id="Text" />
         </object-type>
     </object-folder>
     <families />
