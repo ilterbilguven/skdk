@@ -165,7 +165,7 @@
                         <event-block sid="616301490379335">
                             <conditions>
                                 <condition id="-6" name="Every X seconds" sid="266855719364241" type="System">
-                                    <param id="0" name="Interval (seconds)">random(5,10)</param>
+                                    <param id="0" name="Interval (seconds)">random(3,7)</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -189,7 +189,7 @@
                     <sub-events>
                         <event-block sid="470671335638510">
                             <conditions>
-                                <condition id="0" name="On collision with another object" sid="520052861476746" type="yellowCar">
+                                <condition id="1" name="Is overlapping another object" sid="520052861476746" type="yellowCar">
                                     <param id="0" name="Object">yellowBoost</param>
                                 </condition>
                             </conditions>
@@ -203,7 +203,7 @@
                         </event-block>
                         <event-block sid="138031578558747">
                             <conditions>
-                                <condition id="0" name="On collision with another object" sid="647386537129158" type="redCar">
+                                <condition id="1" name="Is overlapping another object" sid="647386537129158" type="redCar">
                                     <param id="0" name="Object">redBoost</param>
                                 </condition>
                             </conditions>
@@ -506,7 +506,7 @@
         <variable constant="0" name="DifferenceY" sid="410209839375416" static="0" type="number">0</variable>
         <event-group description="" sid="914779195844395" title="CameraSettings">
             <sub-events>
-                <event-group description="" disabled="1" sid="169907797215661" title="Release">
+                <event-group description="" sid="169907797215661" title="Release">
                     <sub-events>
                         <event-block sid="445423971073518">
                             <conditions>
@@ -550,9 +550,9 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group description="" sid="743973013062722" title="Debug">
+                <event-group description="" disabled="1" sid="743973013062722" title="Debug">
                     <sub-events>
-                        <event-block sid="873116933816103">
+                        <event-block disabled="1" sid="873116933816103">
                             <conditions>
                                 <condition id="-2" name="On start of layout" sid="183287363886340" type="System" />
                             </conditions>
@@ -716,7 +716,7 @@
                         <event-block sid="142466590798440">
                             <conditions>
                                 <condition id="-6" name="Every X seconds" sid="583170781479651" type="System">
-                                    <param id="0" name="Interval (seconds)">random(1,3)</param>
+                                    <param id="0" name="Interval (seconds)">random(2,7)</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -731,6 +731,45 @@
                                     <param id="1" name="Layer">2</param>
                                     <param id="2" name="X">choose(195,295,395,495,595)</param>
                                     <param id="3" name="Y">middlePoint.Y - random(1536, 2048)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="823936885346827">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="499192102913173" type="System">
+                                    <param id="0" name="Interval (seconds)">random(1,5)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="980765527879109" type="System">
+                                    <param id="0" name="Object to create">dog</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="X">695</param>
+                                    <param id="3" name="Y">middlePoint.Y - random(1333, 1888)</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="325104036564876" type="dog">
+                                    <param id="0" name="Angle">180</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="763855855289295" type="dog">
+                                    <param id="0" name="Speed">random(10,100)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="975542033764932">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="306522339114045" type="System">
+                                    <param id="0" name="Interval (seconds)">random(3,9)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="108749646850112" type="System">
+                                    <param id="0" name="Object to create">dog</param>
+                                    <param id="1" name="Layer">2</param>
+                                    <param id="2" name="X">95</param>
+                                    <param id="3" name="Y">middlePoint.Y - random(1333, 1888)</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="796941453616288" type="dog">
+                                    <param id="0" name="Speed">random(10,100)</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -788,11 +827,21 @@
                                 <action behavior="Car" id="4" name="Set max speed" sid="631873858607008" type="redCar">
                                     <param id="0" name="Max Speed">maxSpeed - dog.friction</param>
                                 </action>
+                                <action id="-16" name="Wait" sid="908087292940421" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="514746444305991" type="dog" />
                             </actions>
                         </event-block>
                         <event-block sid="302486257888953">
                             <conditions>
                                 <condition id="-22" name="Else" sid="489509493701556" type="System" />
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="568073689507479" type="redCar">
+                                    <param id="0" name="Object">RoadBG</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="408565715114441" type="redCar">
+                                    <param id="0" name="Instance variable">boost</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action behavior="Car" id="4" name="Set max speed" sid="997013809213595" type="redCar">
@@ -800,10 +849,26 @@
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="161004279839537">
+                        <event-block sid="705805741489580">
                             <conditions>
+                                <condition id="-22" name="Else" sid="249063532108856" type="System" />
                                 <condition id="1" name="Is overlapping another object" sid="265124171801263" type="redCar">
                                     <param id="0" name="Object">RoadBG</param>
+                                </condition>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="149550621879607" type="redCar">
+                                    <param id="0" name="Object">dog</param>
+                                </condition>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="751901999387539" type="redCar">
+                                    <param id="0" name="Object">bump</param>
+                                </condition>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="571526377727506" type="redCar">
+                                    <param id="0" name="Object">RoadOutline</param>
+                                </condition>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="955199424060178" type="redCar">
+                                    <param id="0" name="Object">Tree</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="434042666171570" type="redCar">
+                                    <param id="0" name="Instance variable">boost</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -861,11 +926,21 @@
                                 <action behavior="Car" id="4" name="Set max speed" sid="142857835662804" type="yellowCar">
                                     <param id="0" name="Max Speed">maxSpeed - dog.friction</param>
                                 </action>
+                                <action id="-16" name="Wait" sid="594032447964741" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="850696208036015" type="dog" />
                             </actions>
                         </event-block>
                         <event-block sid="139559374238159">
                             <conditions>
                                 <condition id="-22" name="Else" sid="604157898028874" type="System" />
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="106738430609754" type="yellowCar">
+                                    <param id="0" name="Object">RoadBG</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="613436169133787" type="yellowCar">
+                                    <param id="0" name="Instance variable">boost</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action behavior="Car" id="4" name="Set max speed" sid="969710424526184" type="yellowCar">
@@ -873,10 +948,26 @@
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="169278419616309">
+                        <event-block sid="248919851995537">
                             <conditions>
+                                <condition id="-22" name="Else" sid="546275894817794" type="System" />
                                 <condition id="1" name="Is overlapping another object" sid="498016765436899" type="yellowCar">
                                     <param id="0" name="Object">RoadBG</param>
+                                </condition>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="721778434668589" type="yellowCar">
+                                    <param id="0" name="Object">dog</param>
+                                </condition>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="409935551025298" type="yellowCar">
+                                    <param id="0" name="Object">bump</param>
+                                </condition>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="945446624216438" type="yellowCar">
+                                    <param id="0" name="Object">RoadOutline</param>
+                                </condition>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="531577373680569" type="yellowCar">
+                                    <param id="0" name="Object">Tree</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="996879979347039" type="yellowCar">
+                                    <param id="0" name="Instance variable">boost</param>
                                 </condition>
                             </conditions>
                             <actions>

@@ -5564,7 +5564,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <friction>25</friction>
+                        <friction>35</friction>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -5589,7 +5589,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <friction>25</friction>
+                        <friction>35</friction>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -6997,20 +6997,32 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <friction>15</friction>
+                        <friction>30</friction>
                     </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>400</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>Yes</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>396.985443115</x>
                         <y>1373.362548828</y>
                         <z>0</z>
-                        <width>9</width>
-                        <height>30</height>
+                        <width>30</width>
+                        <height>9</height>
                         <depth>0</depth>
-                        <hotspotX>0.555555582</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>1.570796371</angle>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.555555582</hotspotY>
+                        <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
@@ -7022,7 +7034,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <friction>45</friction>
+                        <friction>60</friction>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
